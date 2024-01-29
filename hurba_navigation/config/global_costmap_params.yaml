@@ -1,6 +1,6 @@
 global_costmap:
    global_frame: map
-   robot_base_frame: base_footprint
+   robot_base_frame: base_link
    update_frequency: 1.0
    publish_frequency: 1.0
    inflation_radius: 0.4
@@ -10,3 +10,15 @@ global_costmap:
    resolution: 0.1
    static_map: true
    rolling_window: false
+   
+   plugins: 
+   - {name: static_layer,            type: "costmap_2d::StaticLayer"}
+   
+   static_layer:
+     enabled: true
+     map_topic: /projected_map
+     subscribe_to_updates: true
+     
+     
+     
+     
